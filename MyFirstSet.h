@@ -9,10 +9,10 @@ template < class T > class MyFirstSet : public ISet < T >
 
 private:
 
-	int sizeset;  // Размер множества
-	int capacity = 10; //Вместимость
-	T* set;  // Множество
-	T* temp;
+	int sizeset;  // Р Р°Р·РјРµСЂ РјРЅРѕР¶РµСЃС‚РІР°
+	int capacity = 10; //Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ
+	T* set;  // РњРЅРѕР¶РµСЃС‚РІРѕ
+	T* temp; //Р’СЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ
 
 public:
 
@@ -26,13 +26,13 @@ public:
 	~MyFirstSet();
 };
 
-	template <class T> MyFirstSet<T>::MyFirstSet() //Конструктор
+	template <class T> MyFirstSet<T>::MyFirstSet() //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	{
 		sizeset = 0;
 		set = new T[capacity];
 	}
 
-	template <class T> MyFirstSet<T>::MyFirstSet(const MyFirstSet<T>& otherSet)  //Конструктор копирования
+	template <class T> MyFirstSet<T>::MyFirstSet(const MyFirstSet<T>& otherSet)  //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	{
 		sizeset = otherSet.sizeset;
 		capacity = sizeset + 1;
@@ -43,7 +43,7 @@ public:
 		}
 	}
 
-	template <class T>  MyFirstSet<T>& MyFirstSet<T>:: operator=(const MyFirstSet<T> & otherSet) //Оператор присваивания
+	template <class T>  MyFirstSet<T>& MyFirstSet<T>:: operator=(const MyFirstSet<T> & otherSet) //РћРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	{
 		if (this != &otherSet)
 		{
@@ -56,7 +56,7 @@ public:
 		return *this;
 	}
 
-	template <class T> void MyFirstSet<T>::add(const T& elem) //Добавить элемент        Оценка трудоемкости : O(N)
+	template <class T> void MyFirstSet<T>::add(const T& elem) //Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚        РћС†РµРЅРєР° С‚СЂСѓРґРѕРµРјРєРѕСЃС‚Рё : O(N)
 	{
 		bool flag1 = true;
 		for (int i = 0; i < sizeset; i++)
@@ -88,7 +88,7 @@ public:
 	};
 
 
-	template <class T> void MyFirstSet<T>::remove(const T& elem)   //Удалить элемент  Оценка трудоемкости : O(N)
+	template <class T> void MyFirstSet<T>::remove(const T& elem)   //РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚  РћС†РµРЅРєР° С‚СЂСѓРґРѕРµРјРєРѕСЃС‚Рё : O(N)
 	{
 		for (int i = 0; i < sizeset; i++)
 		{
@@ -111,7 +111,7 @@ public:
 
 	};
 
-	template <class T> bool MyFirstSet<T>::contains(const T& elem) const   //Содержится ли(если да, то true)    Оценка трудоемкости : (1/2)*(N+1)
+	template <class T> bool MyFirstSet<T>::contains(const T& elem) const   //РЎРѕРґРµСЂР¶РёС‚СЃСЏ Р»Рё(РµСЃР»Рё РґР°, С‚Рѕ true)    РћС†РµРЅРєР° С‚СЂСѓРґРѕРµРјРєРѕСЃС‚Рё : (1/2)*(N+1)
 	{
 		bool flag = false;
 		for (int i = 0; i < sizeset; i++)
@@ -120,12 +120,12 @@ public:
 		return flag;
 	};
 
-	template <class T> int MyFirstSet<T>::size() const //Узнать размер
+	template <class T> int MyFirstSet<T>::size() const //РЈР·РЅР°С‚СЊ СЂР°Р·РјРµСЂ
 	{
 		return sizeset;
 	};
 
-	template <class T> MyFirstSet<T>::~MyFirstSet() //Деструктор
+	template <class T> MyFirstSet<T>::~MyFirstSet() //Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	{
 		delete[] set;
 	};
