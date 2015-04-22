@@ -3,12 +3,12 @@
 template < class T > class ISet
 {
 public:
-	// добавить элемент
+	// РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 	virtual void add(const T& elem) = 0;
-	// удалить элемент
+        // СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚
 	virtual void remove(const T& elem) = 0;
-	// содержится ли элемент
+	// СЃРѕРґРµСЂР¶РёС‚СЃСЏ Р»Рё СЌР»РµРјРµРЅС‚
 	virtual bool contains(const T& elem) const = 0;
-	// узнать размер множества
+	// СѓР·РЅР°С‚СЊ СЂР°Р·РјРµСЂ РјРЅРѕР¶РµСЃС‚РІР°
 	virtual int size() const = 0;
 };
