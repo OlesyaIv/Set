@@ -91,15 +91,19 @@ public:
 
 	template <class T> void MyFirstSet<T>::remove(const T& elem)   //Удалить элемент  Оценка трудоемкости : O(N)
 	{
+		int k = sizeset;
 		int j = 0;
 		for (int i = 0; i < sizeset; i++)
 		{
 			if (set[i] == elem)
-			    i++;
+			{
+				i++;
+				k--;
+			}
 			set[j] = set[i];
 			j++;
 		}
-		sizeset--;
+		sizeset = k;
 	};
 
 	template <class T> bool MyFirstSet<T>::contains(const T& elem) const   //Содержится ли(если да, то true)    Оценка трудоемкости : O(N)
