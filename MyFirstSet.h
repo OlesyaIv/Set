@@ -10,7 +10,7 @@ template < class T > class MyFirstSet : public ISet < T >
 private:
 
 	int sizeset;  // Размер множества
-	int capacity = 10; //Вместимость
+	int capacity; //Вместимость
 	T* set;  // Множество
 	T* temp; //Временный массив
 
@@ -29,6 +29,7 @@ public:
 	template <class T> MyFirstSet<T>::MyFirstSet() //Конструктор
 	{
 		sizeset = 0;
+		capacity = 10;
 		set = new T[capacity];
 	}
 
@@ -69,7 +70,7 @@ public:
 			if (sizeset == capacity - 1)
 			{
 				temp = new T[capacity * 2];
-				for (int i = 0; i < sizeset - 1; i++)
+				for (int i = 0; i < sizeset; i++)
 				{
 					temp[i] = set[i];
 				}
@@ -90,28 +91,18 @@ public:
 
 	template <class T> void MyFirstSet<T>::remove(const T& elem)   //Удалить элемент  Оценка трудоемкости : O(N)
 	{
+		int j = 0;
 		for (int i = 0; i < sizeset; i++)
 		{
 			if (set[i] == elem)
-			{
-				int j = 0;
-				for (int i = 0; i < sizeset - 1; i++)
-				{
-					if (set[i] == elem)
-						i++;
-					set[j] = set[i];
-					j++;
-				}
-				sizeset--;
-				break;
-			}
-			else
-				cout << "Element didn't found";
+			    i++;
+			set[j] = set[i];
+			j++;
 		}
-
+		sizeset--;
 	};
 
-	template <class T> bool MyFirstSet<T>::contains(const T& elem) const   //Содержится ли(если да, то true)    Оценка трудоемкости : (1/2)*(N+1)
+	template <class T> bool MyFirstSet<T>::contains(const T& elem) const   //Содержится ли(если да, то true)    Оценка трудоемкости : O(N)
 	{
 		bool flag = false;
 		for (int i = 0; i < sizeset; i++)
